@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cnr_furniture.mapper.ItemInfoMapper">
+
+    <!--제품 조회 및 검색-->
+    <select id="getItemInfoList" resultType="com.cnr_furniture.domain.ItemInfo.ItemInfoVO">
+        SELECT ROWNUM rn, I_ID, I_NAME, I_COLOR, I_STANDARD, I_TYPE, I_USES
+        FROM ITEM
+        WHERE 1=1
+        <foreach item="type" collection="typeArr">
+            <if test="type == 'INum'.toString()">
+                and  I_ID like '%' || #{keyword} || '%'
+            </if>
+            <if test="type == 'IName'.toString()">
+                and I_NAME like '%' || #{keyword} || '%'
+            </if>
+            <if test="type == 'IUses'.toString()">
+                and I_USES like '%' || #{keyword} || '%'
+            </if>
+        </foreach>
+        ORDER BY I_ID ASC
+    </select>
+
+    <!--수정할 제품 값 불러오기-->
+    <select id="getOneItem" resultType="com.cnr_furniture.domain.ItemInfo.ItemInfoVO">
+        SELECT * FROM ITEM WHERE I_ID = #{i_id}
+    </select>
+
+    <!--제품 등록-->
+    <insert id="addItem">
+        INSERT INTO ITEM
+        (I_ID, I_NAME, I_COLOR, I_STANDARD, I_TYPE, I_USES)
+        VALUES
+        (ITEM_SEQ.nextval, #{i_name}, #{i_color}, #{i_standard}, #{i_type}, #{i_uses})
+    </insert>
+
+    <!--제품 수정-->
+    <update id="modifyList">
+        UPDATE ITEM SET
+            I_NAME = #{i_name}
+            , I_COLOR = #{i_color}
+            , I_STANDARD = #{i_standard}
+            , I_TYPE = #{i_type}
+            , I_USES = #{i_uses}
+        WHERE I_ID = #{i_id}
+    </update>
+
+</mapper>

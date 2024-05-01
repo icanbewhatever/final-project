@@ -1,0 +1,521 @@
+/*   검색창   */
+.prosearchBer {
+  display: flex;
+	align-items: center;
+  height: 50px;
+  background-color: #fff;
+  border-top: 2px solid #999;
+  border-bottom: 2px solid #999;
+  margin-bottom: 10px;
+
+
+ 
+}
+/*   검색명   */
+.prosb-name {
+  display: flex;
+	align-items: center;
+	justify-content: center;
+  height: 46px;
+  background-color: #D9D9D9;
+  margin-right: 20%;
+  right: 8px;
+
+  
+}
+
+/*   검색내용   */
+.prosb-text {
+  display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	/*width:30%;*/
+	right:20%;
+
+}
+
+.prosearchBer .textPro {
+  margin: 5px;
+ 
+}
+
+.InnputBody .textPro1 {
+    margin: 8px;
+
+}
+
+
+.prosb-text input[type="text"] {
+  height: 40px;
+}
+
+.prosearch {
+  float: right;
+  width: 80px;
+  height: 40px;
+}
+.pro-btn {
+  float: right;
+}
+
+/*   표 이름   */
+.ProTableName {
+  display: flex;
+	align-items: center;
+  width: 100%;
+  height: 40px;
+  background-color: #F1F1F1;
+  border-top: 2px solid #999;
+	font-family: Inter;
+	font-weight: 400;
+  font-size: 16px;
+}
+/*   아이콘 div   */
+.icon {
+  display: flex;
+	justify-content: center;
+	align-items: center;
+  width: 30px;
+  margin-left: 5px;
+}
+/*   테이블 이름   */
+.process {
+  display: flex;
+	align-items: center;
+}
+
+
+
+/*  테이블 길이 조절   */
+
+
+
+.tbl-headerPro{
+  background-color: #374056;
+  position : sticky;
+  top : 0;
+ }
+.tbl-headerPro tr th{
+  padding: 15px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 12px;
+  color: #fff;
+  text-transform: uppercase;
+  border-right: 1px solid #fff;
+}
+.tbl-headerPro tr th:last-child{
+  border-right: none;
+}
+.ProTable{
+  margin-top: 0px;
+}
+
+.ProTable tr:hover,
+.ProTable tr:nth-child(even):hover{
+  background: #d9d9d9;
+}
+.ProTable tr:nth-child(even) {
+  background: #eaeaed;
+}
+.ProTable td{
+  padding: 15px;
+  text-align: center;
+  vertical-align:middle;
+  font-weight: 300;
+  font-size: 12px;
+  color: #000;
+  border-right: 1px solid #BDBDBD;
+}
+.ProTable tr td:last-child{
+  border-right: none;
+}
+
+/* for custom scrollbar for webkit browser*/
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+
+
+
+
+.proheaderBar {
+    border-top: 1px black solid;
+    margin: 0px 8px 0px 8px;
+    display: flex;
+
+    
+}
+
+.process1Search {
+    display: flex;
+
+}
+
+.process1Search .processBox{
+    width: 120px;
+    margin: 10px 15px 10px 15px;
+
+
+}
+
+.proName, .proType, .proPosition{
+    display: flex;
+
+}
+
+.searchProbar {
+    padding: 15px;
+    background-color: #D8D8D8;
+}
+
+.proType .textPro5{
+    margin-top: 15px;
+}
+
+.pro-btn{
+    margin-left: auto;
+    display: flex;
+
+}
+
+#prosearchbtn, #proaddBtn{
+    margin: 3px;
+
+}
+
+
+/*instructionPlan*/
+/*제조 수행지시등록 모달*/
+.process-highlight, .process-th, .process-td {
+    border: 1px solid black; 
+    padding: 10px; 
+    background-color: #374056; 
+    color: #ffffff; 
+    text-align: center;
+    width: 6px;
+}
+
+.process-select, .process-input-date, .process-input-text, .process-textarea {
+    width: 98%; 
+    box-sizing: border-box; 
+    border: 1px solid #ccc; 
+    padding: 5px; 
+    margin: 2px 0; 
+}
+
+.process-textarea {
+    resize: none; 
+    height: 50px; 
+    margin-top: 3px;
+}
+
+.process-highlight2 {
+    border: 1px solid black; 
+    padding: 10px; 
+    color: #ffffff; 
+    text-align: center;
+    width:30%;
+}
+
+.register-Process-Modal-Dialog {
+	min-width: 70%;
+}
+
+
+.processtable .proArea{
+height: 10px;
+}
+
+/*공정등록 모달*/
+
+.processModal {
+	width: 96%; 
+	padding-left:3%;
+  margin-bottom: 5%; 
+  margin-top: 2%;
+}
+
+.processModalBody {
+  padding: 10px; 
+}
+
+.processtablegubun {
+  width: 100%; 
+  border-collapse: collapse; 
+}
+
+.processtablegubun .proTh {
+  color: #ffffff; 
+  text-align: center;
+  border: 1px solid #ddd; 
+  padding: 8px; 
+  background-color: #374056;
+  width: 10%;
+}
+
+.processtablegubun .proTd {
+  border: 1px solid #ddd; 
+  padding: 4px; 
+  width: 10%;
+}
+
+ .processInput {
+  width: 100%; 
+  border: 1px solid #ccc; 
+  border-radius: 4px; 
+}
+
+
+.InnputBody{
+	 padding-left:4%;
+	 width: 50%;
+	 display: flex;
+	 margin: 1%
+}
+
+.InnputBody1{
+	 padding-left:4%;
+	 width: 50%;
+	 display: flex;
+	 margin-bottom: 1%
+}
+
+.sInput{
+	height: 85%;
+  text-align: center;
+}
+
+/*공정정보등록 조회*/
+
+.inputmedle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* 추가: 요소들을 시작점 기준으로 정렬 */
+}
+
+.processSearchInput {
+  padding: 3px;
+  width: 100%;
+  height: 35px;
+  margin-top: 1px;
+}
+
+.inputmedle1{
+	margin-left:1%;
+	width: 100%;
+
+}
+
+.contentPros {
+	width: 100%;
+}
+
+
+.maginPro{
+	margin-left: 4%;
+}
+
+
+/*제조 지시 등록 모달*/
+.pporContainer {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: flex-start; 
+}
+
+.pporBox {
+    flex: 1; 
+    margin: 0 10px; 
+}
+
+
+.form-control1 {
+    width: 100%; 
+    margin-bottom: 10px; 
+}
+
+
+.asb{
+ margin-right:0px;
+}
+
+
+/*아이콘*/
+.procexxIcon {
+	margin-left: 60%;
+}
+
+
+.procexxIcon1 {
+	margin-left: 45%;
+}
+
+
+.DOTable {
+    height: 300px;
+}
+
+.formPro{
+    width: 100%
+}
+
+
+.proimage{
+   display: flex;
+   margin-left: 5%;
+}
+
+
+/*새로고침 호버*/
+.proimage:hover .resetPng {
+    transform: scale(0.95);
+    transition: transform 0.1s, box-shadow 0.1s; 
+}
+
+.proimage:active .resetPng {
+    transform: scale(1.05);
+    transition: transform 0.05s, box-shadow 0.05s;
+    
+}
+.ProTable5 {
+ 		height: 300px;
+}
+
+
+
+.processIcon{
+margin-left: 35%;
+}
+
+.processIcon2{
+float-right;
+}
+
+.processIcon1{
+margin-left: 2%;
+}
+
+.buttonSession {
+padding: 5px;
+}
+
+
+
+.cth1 {
+  text-align: center;
+}
+.ctP {
+    text-align: center;
+    width: 100%;
+    margin-top: 3%;
+}
+
+.tablectP {
+    margin: 0 auto; /* 테이블을 페이지 중앙에 배치 */
+    border-collapse: collapse;
+    width: 80%; /* 테이블의 너비를 80%로 설정 */
+ }
+
+.tablectP th, .tablectP td {
+     border: 1px solid #999;
+     padding: 8px;
+     text-align: center;
+ }
+
+   .tablectcP {
+     background-color: #f2f2f2;
+ }
+
+ .modalCtPr{
+ margin-top: 40px;
+ }
+ 
+ .ctP1{
+     text-align: center;
+     width: 100%;
+     margin-top: 3%;
+ }
+ 
+ .formPro{
+    float: right;
+    position: relative;
+    left: 0%;
+    top: 18px;
+    margin-top: -39px;
+ 
+ }
+ .tablectP .tbl-content.ProTable15 tr td:last-child {
+	border-right: 1px solid #999;
+}
+ 
+    
+.tablectP .tbl-content.ProTable15 tr:hover,
+.tablectP .tbl-content.ProTable15 tr:nth-child(even):hover {
+	background: #FFF;
+	
+}
+/* 짝수 tr 색상 흰색 */
+.tablectP .tbl-content.ProTable15 tr:nth-child(even) {
+  background: #FFF;
+}
+
+
+
+.sb-buttons {
+    float: right;
+    padding-top: 1px;
+    width: 120px;
+    height: 40px;
+    margin-right: 114px;
+
+}
+
+
+.processIcon6{
+    margin-left: 76%;
+}
+
+
+.process{
+margin-right:auto;
+}
+
+
+
+
+.DOsetTable {
+    height: 150px;
+}
+
+.DOTable1{
+	 height: 200px;
+}
+ 
+ 
+.addJejo{
+	float: right;
+} 
+
+
+.addSu{
+    margin-top: 8%;
+}
+
+.addJejo1{
+    float: right;
+    margin-right: 2%;
+}
+
+.maginProSu{
+    margin-left:2%;
+}

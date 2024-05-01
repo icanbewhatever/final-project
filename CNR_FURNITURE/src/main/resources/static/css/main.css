@@ -1,0 +1,41 @@
+@charset "UTF-8";
+
+body{
+	font-family: "Noto Sans KR", sans-serif;
+}
+
+.sideBarSub{
+	margin-left: 20px;
+}
+
+.content-wrapper{
+  min-height: 100%;
+  position: relative;
+}
+
+footer{
+  height: 30px;
+  bottom: 0px;
+  position: absolute;
+  width:100%
+}
+.copyright{
+	vertical-align: middle;
+}
+
+.reset{
+	border:1px solid #777;
+	width: 40px; 
+	height: 40px;
+	text-align: center;
+	padding-bottom: 2px;
+	vertical-align: middle;
+	background-color: #fff;
+	border-radius: 3px;
+}
+
+.resetPng{
+	margin-top: 5px;
+	width: 25px; 
+	height: 25px;
+}

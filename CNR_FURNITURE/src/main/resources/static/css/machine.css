@@ -1,0 +1,174 @@
+.headerBar {
+    border-top: 1px black solid;
+    margin: 0px 8px 0px 8px;
+    display: flex;
+}
+
+.table{
+    height: 550px;
+    overflow-y: auto;
+}
+
+.resetAndMachineInfo{
+    display: flex;
+    justify-content: space-between;
+}
+
+.resetMachine{
+    margin-left: auto;
+}
+
+.machineSearch {
+    display: flex;
+}
+
+.machineSearch .find_machine_check_condition{
+    width: 150px;
+    margin: 10px 15px 10px 15px;
+
+}
+
+.machineName, .machineType, .machinePosition, .machineCheckWriter, .machineCheckDate, .machineStatus{
+    display: flex;
+}
+
+.searchMachine{
+    padding: 15px;
+    background-color: #D8D8D8;
+}
+
+.machineBox{
+    width: 100px;
+    margin: 10px 15px 10px 15px;
+}
+
+.searchbtn, .machineCheckSave{
+    margin-left: auto;
+    display: flex;
+}
+
+#searchbtn, #addBtn, #machineCheckSave{
+    width: 80px;
+    margin: 8px;
+}
+
+#updateMachine{
+    color: #00c0ef;
+    cursor:pointer;
+}
+
+.nameaddmodal, .typeaddmodal{
+    display: flex;
+}
+
+.addName, .addType{
+    margin: 20px;
+}
+
+.modalAddName, .modalAddType{
+    height: 50px;
+}
+
+.modalAddType{
+    margin-left: 51px;
+}
+
+.modalAddName{
+    margin-left: 65px;
+}
+
+.numberupdatemodal, .nameupdatemodal, .typeupdatemodal, .positionupdatemodal{
+    display: flex;
+}
+
+.updateNumber, .updateName, .updateType, .updatePosition{
+    margin: 20px;
+}
+
+.modalUpdateNumber, .modalUpdateName, .modalUpdateType, .modalUpdatePosition{
+    height: 50px;
+}
+
+.modalUpdateNumber, .modalUpdateType, .modalUpdatePosition{
+    margin-left: 51px;
+}
+
+.modalUpdateName{
+    margin-left: 65px;
+}
+
+/*   설비별 체크리스트   */
+
+.machineSearch .find_machine_check_method, .find_machine_check_type{
+    width: 100px;
+    margin: 10px 15px 10px 15px;
+
+}
+
+.find_machine_check_method, .find_machine_check_type{
+    border: 2px solid black;
+}
+
+.checkType,
+.checkMethod {
+    color: #ebebeb; /* checkType와 checkMethod 클래스의 글자 색을 #ebebeb으로 지정 */
+}
+
+.machineCheckType, .MachineCheckMethod {
+    padding: 15px;
+    background-color: #D8D8D8;
+}
+
+/*   체크리스트 추가 모달   */
+
+.addMachineNumber, .addMachineType, .addMachineMethod, .addMachineCondition{
+    display: flex;
+}
+
+.addNumberMachine, .addTypeMachine, .addMethodMachine, .addConditionMachine{
+    margin: 20px;
+}
+
+.modalAddNumber, .modalAddTypeCheck, .modalAddMethod, .modalUpdatePosition{
+    height: 50px;
+}
+
+.modalAddNumber, .modalAddMethod{
+    margin-left: 51px;
+}
+
+.modalAddTypeCheck{
+    margin-left: 22px;
+}
+
+.modalAddCondition{
+    margin-left: 81px;
+}
+
+#myModalLabell{
+    margin-left: -55px;
+}
+
+/* 체크리스트 작성 */
+
+.machineCheckText{
+    width: 100%;
+    height: 30%;
+}
+
+.machineCheckSave{
+    position: absolute;
+    right: 1%;
+}
+
+.onchangeMachineName, .machineCheckWriterBox, .machineCheckDateBox{
+    width: 180px;
+    height: 40px;
+    margin: 8px;
+}
+
+#machineCheckSave{
+    color: #6c757d;
+    border: none;
+    margin : auto;
+}

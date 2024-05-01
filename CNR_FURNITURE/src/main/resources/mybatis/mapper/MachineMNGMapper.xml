@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cnr_furniture.mapper.MachineMNGMapper">
+    <parameterMap id="MachineChkParam" type="com.cnr_furniture.domain.Machine.SearchMachineCheckVO"></parameterMap>
+    <!-- 설비 체크리스트 정보 리스트 -->
+    <select id="getMachineCheckList"
+            parameterType="com.cnr_furniture.domain.Machine.SearchMachineCheckVO"
+            resultType="com.cnr_furniture.domain.Machine.MachineCheckVO">
+        SELECT
+            MCI_ID,
+            MAX(MCI_DIV) AS MCI_DIV,
+            MAX(MCI_CONDITION) AS MCI_CONDITION,
+            MAX(MCI_METHOD) AS MCI_METHOD
+        FROM
+            MACHINE_CHECK_INFO
+        where 1=1
+        <if test="find_machine_check_type != null and find_machine_check_type != ''">
+            AND mci_div Like '%' || #{find_machine_check_type} || '%'
+        </if>
+        <if test="find_machine_check_method != null and find_machine_check_method != ''">
+            AND mci_method Like '%' || #{find_machine_check_method} || '%'
+        </if>
+        <if test="find_machine_check_condition != null and find_machine_check_condition != ''">
+            AND mci_condition Like '%' || #{find_machine_check_condition} || '%'
+        </if>
+        GROUP BY
+            MCI_ID
+        ORDER BY
+            MCI_ID
+    </select>
+
+    <!-- 설비관리유형 리스트 가져오기-->
+    <select id="getMachineCheckType" parameterType="String" resultType="com.cnr_furniture.domain.Machine.MachineCheckVO">
+        SELECT
+            MCI_DIV
+        FROM
+            MACHINE_CHECK_INFO
+        GROUP BY
+            MCI_DIV
+    </select>
+
+    <!-- 점검방법 리스트 가져오기 -->
+    <select id="getMachineCheckMethod" parameterType="String" resultType="com.cnr_furniture.domain.Machine.MachineCheckVO">
+        SELECT
+            MCI_METHOD
+        FROM
+            MACHINE_CHECK_INFO
+        GROUP BY
+            MCI_METHOD
+    </select>
+
+    <!-- 체크리스트 등록 -->
+    <insert id="addMachineCheck">
+        INSERT INTO MACHINE_CHECK_INFO (mci_id, mci_mi_id, mci_div, mci_method, mci_condition)
+            SELECT
+                CASE
+                    WHEN EXISTS (
+                        SELECT 1
+                        FROM MACHINE_CHECK_INFO
+                        WHERE mci_div = #{modalAddTypeCheck}
+                        AND mci_method = #{modalAddMethod}
+                        AND mci_condition = #{modalAddCondition}
+                     ) THEN (
+                            SELECT MAX(mci_id)
+                            FROM MACHINE_CHECK_INFO
+                            WHERE mci_div = #{modalAddTypeCheck}
+                            AND mci_method = #{modalAddMethod}
+                            AND mci_condition = #{modalAddCondition}
+                    )
+                    ELSE MACHINE_CHECK_INFO_SEQ.NEXTVAL
+                END,
+                #{modalAddNumber},
+                #{modalAddTypeCheck},
+                #{modalAddMethod},
+                #{modalAddCondition}
+            FROM dual
+    </insert>
+
+    <!-- 마지막 체크리스트 하나만 보여주기 -->
+    <select id="getMachineCheckOne" parameterType="String" resultType="com.cnr_furniture.domain.Machine.MachineCheckVO">
+        SELECT MCI_ID, MCI_DIV, MCI_METHOD, MCI_CONDITION
+        FROM  (Select
+                    MCI_ID, MCI_DIV, MCI_METHOD, MCI_CONDITION
+                from
+                    MACHINE_CHECK_INFO
+                ORDER BY MCI_MI_ID
+                    DESC FETCH FIRST 1 ROW ONLY) MI
+    </select>
+
+    <!-- 설비명과 설비ID 가져오기 -->
+    <select id="getMachineInfo" parameterType="String" resultType="com.cnr_furniture.domain.Machine.MachineVO">
+        SELECT mi_id, mi_name
+        FROM MACHINE_INFO
+        order by mi_id
+    </select>
+
+    <!-- 해당하는 체크리스트 불러오기 -->
+    <select id="getMachineCheckAll" parameterType="String" resultType="com.cnr_furniture.domain.Machine.MachineCheckVO">
+        SELECT ROWNUM, MI.MCI_ID, MI.MCI_DIV, MI.MCI_METHOD, MI.MCI_CONDITION
+        FROM  (SELECT MCI_ID, MCI_DIV, MCI_METHOD, MCI_CONDITION
+                FROM MACHINE_CHECK_INFO
+                <if test="find_machine_id != null and find_machine_id != ' '">
+                    WHERE MCI_MI_ID = #{find_machine_id}
+                </if>
+                <if test="find_machine_id == null and find_machine_id == ' '">
+                    WHERE 1=2
+                </if>
+                ORDER BY MCI_ID) MI
+    </select>
+    
+    <!-- 체크리스트 기록 추가 -->
+    <insert id="insertMachineCheckRecord" parameterType="com.cnr_furniture.domain.Machine.MachineCheckRecordVO">
+        INSERT INTO Machine_Check_Record (MCR_ID, MCR_MCI_ID, MCR_MI_ID, MCR_EMP_ID, MCR_DATE, MCR_ANSWER, MCR_NOTE)
+        VALUES
+                (
+        MACHINE_CHECK_RECORD_SEQ.NEXTVAL,
+        #{mcr_mci_id},
+        #{mcr_mi_id},
+        #{mcr_emp_id},
+        sysdate,
+        #{mcr_answer},
+        #{mcr_note} )
+    </insert>
+
+    <!-- 체크리스트 기록에서 'y'가 없으면 설비상태가 '이상없음'으로 업데이트-->
+    <update id="updateMcWork" parameterType="com.cnr_furniture.domain.Machine.MachineCheckRecordVO">
+        UPDATE
+            MACHINE_WORK
+        SET
+            MW_CONDITION = '이상없음'
+        WHERE
+            MW_MI_ID IN (
+                SELECT MCR_MI_ID
+                FROM Machine_Check_Record
+                WHERE MCR_ANSWER = 'N'
+                AND MCR_MI_ID = #{mcr_mi_id}
+                AND TRUNC(MCR_DATE) = TRUNC(SYSDATE)
+            )
+    </update>
+
+    <!-- 체크리스트 기록에서 'y'가 있으면 설비 상태 업데이트 -->
+    <update id="updateMachineCondition" parameterType="com.cnr_furniture.domain.Machine.MachineCheckRecordVO">
+        UPDATE
+            MACHINE_WORK
+        SET
+            MW_STATUS = '비가동',
+            MW_CONDITION = '수리요청'
+        WHERE
+            MW_MI_ID IN (
+                SELECT MCR_MI_ID
+                FROM Machine_Check_Record
+                WHERE MCR_ANSWER = 'Y'
+                AND MCR_MI_ID = #{mcr_mi_id}
+                AND TRUNC(MCR_DATE) = TRUNC(SYSDATE)
+            )
+    </update>
+
+    <!-- 설비수리 이력 관리 리스트 가져오기 -->
+    <select id="McRepairList" parameterType="String" resultType="com.cnr_furniture.domain.Machine.MachineRepairVO">
+        SELECT
+            ROWNUM,
+            MC.*
+        FROM
+            (SELECT
+                rownum,
+                MR.MR_MI_ID,
+                MI.MI_NAME,
+                MI.MI_TYPE,
+                PI.PI_SEQ,
+                MI.MI_POSITION,
+                MCR.MCR_NOTE,
+                to_char(MR.MR_DATE, 'yyyy-MM-dd') AS MR_DATE
+            FROM
+                MACHINE_REPAIR MR
+            JOIN
+                MACHINE_INFO MI ON MR.MR_MI_ID = MI.MI_ID
+            LEFT JOIN
+                PROCESS_INFO PI ON MR.MR_MI_ID = PI.PI_MACHINE_ID
+            JOIN
+                MACHINE_CHECK_RECORD MCR ON MR.MR_MCR_ID = MCR.MCR_ID
+            where 1=1
+                <if test="find_machine_name != null and find_machine_name != ''">
+                    AND mi_name Like '%' || #{find_machine_name} || '%'
+                </if>
+                <if test="find_machine_type != null and find_machine_type != ''">
+                    AND mi_type Like '%' || #{find_machine_type} || '%'
+                </if>
+            ORDER BY
+                MR.MR_DATE DESC
+            ) MC
+    </select>
+
+</mapper>

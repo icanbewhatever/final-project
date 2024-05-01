@@ -1,0 +1,314 @@
+@charset "UTF-8";
+
+/* 상단 검색 section */
+/*   검색창   */
+.materialMNG-searchBar {
+	display: flex;
+	align-items: center;
+  height: 50px;
+  background-color: #fff;
+  border-top: 2px solid #999;
+  border-bottom: 2px solid #999;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+/*   검색명   */
+.materialMNG-name {
+  display: flex;
+	align-items: center;
+	justify-content: center;
+  height: 46px;
+  background-color: #D9D9D9;
+}
+/*   검색내용   */
+.materialMNG-text {
+  display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.materialMNG-text input,
+.materialMNG-text select {
+  height: 40px;
+}
+
+/* 테이블명 */
+.materialMNG-titleAndTable {
+	margin-left: 0;
+  padding-right: 0;
+}
+/* 테이블명 */
+.materialMNG-title {
+  margin: 0.5% 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+/* 테이블 */
+.materialMNG-table {
+	max-height: 70vh;	/* 뷰포트 높이의 70%로 최대 높이 설정 */
+  overflow-y: auto;
+  width: 100%;
+  overflow-x: auto;
+}
+
+.materialMNG-table table {
+	width: 100%;
+  table-layout: fixed;
+  border: 1px solid rgba(0,0,0,0.3);
+  border-top: none;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+/* 테이블 글씨 위치 및 크기 */
+.materialMNG-table-header,
+.materialMNG-table-header th,
+.materialMNG-table-content td {
+	white-space: nowrap;	/* 셀 내용을 한 줄에 표시 */
+	text-align: center;
+  vertical-align: middle;
+  padding: 15px;
+  font-size: 12px;
+  border-right: 1px solid #fff;
+}
+/* 테이블 헤더 특정 스타일 */
+.materialMNG-table-header {
+	background-color: #374056;
+  color: #fff;
+  font-weight: 500;
+  text-transform: uppercase;
+  /* y축 스크롤 시, 헤더 고정 */
+  position: sticky;
+  top: 0;
+}
+
+/* 테이블 컨텐츠 특정 스타일 */
+.materialMNG-table-content tr:hover,
+.materialMNG-table-content tr:nth-child(even):hover {
+	background: #d9d9d9;
+}
+.materialMNG-table-content tr:nth-child(even) {
+	background: #eaeaed;
+}
+.materialMNG-table-content td {
+	border-right: 1px solid #BDBDBD;
+}
+
+/* ============================================================ */
+
+/*   검색창   */
+.material-searchBar {
+	display: flex;
+	align-items: center;
+  height: 50px;
+  background-color: #fff;
+  border-top: 2px solid #999;
+  border-bottom: 2px solid #999;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.matInventory-searchBar,
+.matContInfo-searchBar {
+  display: flex;
+	align-items: center;
+  height: 10%;
+  background-color: #fff;
+  border-top: 2px solid #999;
+  border-bottom: 2px solid #999;
+  margin-bottom: 2%;
+}
+/*   검색명   */
+.material-name {
+  display: flex;
+	align-items: center;
+	justify-content: center;
+  height: 46px;
+  background-color: #D9D9D9;
+}
+/*   검색명   */
+.matInventory-search-title,
+.matContInfo-search-title {
+  display: flex;
+	align-items: center;
+	justify-content: center;
+  height: 43px;
+  background-color: #D9D9D9;
+}
+.matOB-LOT-ID,
+.matInventory-LOT-ID {
+	padding: 0 1%;
+}
+/*   검색내용   */
+.material-text {
+  display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.material-text input[type="text"],
+.material-text input[type="date"] {
+  height: 40px;
+}
+.material-text select {
+  height: 40px;
+}
+/*   검색내용   */
+.matInventory-search-content,
+.matContInfo-search-content {
+  display: flex;
+	align-items: center;
+	justify-content: center;
+}
+/* 검색-높이 */
+.matInventory-search-content input[type="text"],
+.matContInfo-search-content input[type="text"] {
+  height: 3%;
+}
+
+
+/* 테이블 양식 */
+.matInventory-titleAndTable,
+.matContInfo-titleAndTable {
+	margin-left: 0;
+	padding-right: 0;
+}
+/* 테이블명 */
+.matIB-title,
+.material-table-title {
+	margin: 0.5% 0;
+	font-size: 18px;
+	font-weight: 600;
+}
+/* 테이블 */
+.matIB-table,
+.material-table {
+	width: 100%;			/* 부모 요소인 col-sm-12의 100%를 차지 */
+	max-height: 70vh;	/* 뷰포트 높이의 70%로 최대 높이 설정 */
+	overflow: auto;
+	margin: 0 auto;
+}
+.matIB-table table,
+.material-table table {
+	width: 100%;		/* 부모 요소인 col-sm-12의 100%를 차지 */
+  table-layout: fixed;
+  border: 1px solid rgba(0,0,0,0.3);
+  border-top: none;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+/* 테이블 글씨 위치 및 크기 */
+.matIB-table th,
+.matIB-table-content td,
+.material-table th,
+.material-table-content td {
+	white-space: nowrap;	/* 셀 내용을 한 줄에 표시 */
+	text-align: center;
+  vertical-align: middle;
+  padding: 15px;
+  font-size: 12px;
+}
+/* 테이블 헤더 특정 스타일 */
+.material-table-header th,
+.material-table-content th {
+	background-color: #374056;
+  color: #fff;
+  font-weight: 500;
+  text-transform: uppercase;
+  border-right: 1px solid #fff;
+}
+
+/* 테이블명 */
+.matInventory-title,
+.matContInfo-title {
+	padding-left: 1%;
+	margin-bottom: 10px;
+	font-size: 18px;
+	font-weight: 600;
+}
+/* 테이블 */
+.matInventory-table,
+.matContInfo-table {
+	height: auto;
+	overflow-y: auto;
+}
+.matInventory-table table,
+.matContInfo-table table {
+  table-layout: fixed;
+  border: 1px solid rgba(0,0,0,0.3);
+  border-top:none;
+  border-collapse: separate;
+	border-spacing: 0;
+}
+.matInventory-table table,
+.matContInfo-table table {
+	width:100%;
+}
+.matInventory-table-header,
+.matContInfo-table-header {
+  background-color: #374056;
+  position : sticky;
+  top : 0;  
+ }
+ 
+/* 테이블 좌우 길이 조절 */
+.matInventory-table-header th,
+.matContInfo-table-header th,
+.matInventory-table-content td,
+.matContInfo-table-content td {
+	white-space: nowrap;
+}
+.matInventory-table-header tr th,
+.matContInfo-table-header tr th {
+	padding: 15px;
+}
+.matInventory-table-header tr th,
+.matContInfo-table-header tr th {
+	text-align: center;
+  font-weight: 500;
+  font-size: 12px;
+  color: #fff;
+  text-transform: uppercase;
+  border-right: 1px solid #fff;
+}
+
+.matInventory-table-header tr th:last-child,
+.matContInfo-table-header tr th:last-child {
+  border-right: none;
+}
+.matInventory-table-content,
+.matContInfo-table-content {
+  margin-top: 0px;
+}
+
+
+
+
+
+/* 테이블 컨텐츠 스타일 */
+.material-table-content tr:hover,
+.material-table-content tr:nth-child(even):hover,
+
+.matInventory-table-content tr:hover,
+.matContInfo-table-content tr:hover,
+.matInventory-table-content tr:nth-child(even):hover,
+.matContInfo-table-content tr:nth-child(even):hover {
+  background: #d9d9d9;
+}
+.material-table-content tr:nth-child(even),
+.matInventory-table-content tr:nth-child(even),
+.matContInfo-table-content tr:nth-child(even) {
+  background: #eaeaed;
+}
+.material-table-content td,
+.matInventory-table-content td,
+.matContInfo-table-content td {
+  padding: 15px;
+  text-align: center;
+  vertical-align:middle;
+  font-weight: 300;
+  font-size: 12px;
+  color: #000;
+  border-right: 1px solid #BDBDBD;
+}
+.material-table-content tr td:last-child,
+.matInventory-table-content tr td:last-child,
+.matContInfo-table-content tr td:last-child {
+  border-right: none;
+}

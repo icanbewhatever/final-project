@@ -1,0 +1,277 @@
+@charset "UTF-8";
+
+button {
+	cursor: pointer;
+}
+
+/* reset button */
+
+.resetBtn {
+    border: 1px solid #777;
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    padding-bottom: 2px;
+    vertical-align: middle;
+    background-color:  #fff;
+    border-radius: 3px;
+    position: absolute;
+    right: 0;
+    bottom: -15px;	
+    cursor: pointer;
+}
+
+/* bomInsert 페이지 새로고침 버튼 */
+
+.resetBtn2 {
+    border: 1px solid #777;
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    padding-bottom: 2px;
+    vertical-align: middle;
+    background-color:  #fff;
+    border-radius: 3px;
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+}
+
+.BomInfo-btn button {
+	border: 1px solid #999;
+	height: 40px;
+}
+
+/*   검색창   */
+.bomSearchBar {
+	border-bottom: 2px solid #999;
+	border-top: 2px solid #999;
+	margin-bottom: 10px;
+}
+
+#searchBomForm {
+	display: flex;
+	margin: auto;
+}
+
+/*   검색버튼   */
+
+#searchBomBtn {
+	position: absolute;
+		left: 640px;
+		top: 6px;
+}
+
+
+.addLine {
+	height: 50px;
+}
+
+/* BOM 등록의 BOM 관리버튼 */
+.BomInfo-btn {
+	height: 40px;
+	float: right;
+	position: relative;
+	left: -35px;
+	top: -2px;
+}
+
+.bomBtn {
+  float: right;
+  width: 70px;
+  height: 40px;
+}
+
+.insertBom-btn {
+	display: flex;
+	justify-content:end;
+}
+
+
+.itemNumBtn:hover {
+	font-size: large;
+	font-weight: bold;
+	cursor: pointer;	
+}
+
+.modifyBom:hover { 
+	color: #17A2B8;
+	font-weight: bold;
+	font-size: 15px;
+	cursor: pointer;
+}
+
+.bomInsert-btn {
+  float: right;
+  margin-top:-35px;
+  position: relative;
+  top: -8px;
+}
+
+
+/*   bom 수량 수정 텍스트박스   */
+
+input .mQuantity- {
+	width: 32px;
+	position: relative;
+	bottom: -47px;
+	left: 35px;
+}
+
+/*   표 이름   */
+
+.bomInsertBox {
+	margin-top: -24px;
+}
+
+
+.BomTableName {
+  display: flex;
+	align-items: center;
+  width: 100%;
+  height: 40px;
+  background-color: #F1F1F1;
+  border-top: 2px solid #999;
+	font-family: Inter;
+	font-weight: 400;
+  font-size: 16px;
+}
+
+/* bomInsert 제품과 자재목록 테이블  */
+.ITableName {
+	display: flex;
+	align-items: center;
+  width: 100%;
+  height: 50px;
+  background-color: #F1F1F1;
+  border-top: 2px solid #999;
+	font-family: Inter;
+	font-weight: 400;
+  font-size: 16px;
+}
+
+/* bomInsert 제품과 자재목록 검색창  */
+.bomSearchBtn {
+	display: flex;
+	justify-content: space-evenly;
+	height: 30px;
+	padding-left: 0;
+	margin-left: -50px;
+}
+
+/* bomInsert 제품과 자재목록 검색창  */
+.form-check-input {
+	position:relative;
+	left: 10px;
+	
+}
+.searchItem {
+	position: absolute;
+	right: -152px;
+	bottom: -15px;
+	width: 70px;
+	height: 40px;
+}
+
+.MovePage {
+	display: flex;
+	position: relative;
+	left: 66%;
+}
+
+.MovePage button {
+	border: 1px solid #999;
+	height: 40px;
+	margin: 2px;
+}
+
+/*   아이콘 div   */
+.icon {
+  display: flex;
+	justify-content: center;
+	align-items: center;
+  width: 30px;
+  margin-left: 5px;
+}
+
+
+/*   테이블 길이 조절   */
+.table{
+	height:300px;
+	overflow-y: auto;
+}
+
+.table table{
+  width:100%;
+  table-layout: fixed;
+  border: 1px solid rgba(0,0,0,0.3);
+  border-top:none;
+  border-collapse: separate;
+	border-spacing: 0;
+}
+.tbl-header{
+  background-color: #374056;
+  position : sticky;
+  top : 0;
+ }
+.tbl-header tr th{
+  padding: 15px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 12px;
+  color: #fff;
+  text-transform: uppercase;
+  border-right: 1px solid #fff;
+}
+.tbl-header tr th:last-child{
+  border-right: none;
+}
+.table-content{
+  height:300px;
+  margin-top: 0px;
+}
+.table-content tr:hover,
+.table-content tr:nth-child(even):hover{
+  background: #d9d9d9;
+}
+.table-content tr:nth-child(even) {
+  background: #eaeaed;
+}
+
+.table-content td{
+  padding: 15px;
+  text-align: center;
+  vertical-align:middle;
+  font-weight: 400;
+  font-size: 12px;
+  color: #000;
+  border-right: 1px solid #BDBDBD;
+}
+
+
+.table .bomInsertTable tbody td{
+  padding: 15px;
+  text-align: center;
+  vertical-align:middle;
+  font-weight: 400;
+  font-size: 12px;
+  color: #000;
+  border-right: 1px solid #BDBDBD;
+}
+
+
+.table-content tr td:last-child{
+  border-right: none;
+}
+
+/* for custom scrollbar for webkit browser*/
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}

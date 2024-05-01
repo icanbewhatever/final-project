@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cnr_furniture.mapper.BomMapper">
+
+
+    <!--BOM 관리 제품목록 조회, 검색-->
+    <select id="getBomInfoList" resultType="com.cnr_furniture.domain.ItemInfo.ItemInfoVO">
+        SELECT ROWNUM rn, I_ID, I_NAME
+        FROM ITEM
+        WHERE 1=1
+        <foreach item="type" collection="typeArr">
+            <if test="type == 'INum'.toString()">
+                and  I_ID like '%' || #{keyword} || '%'
+            </if>
+            <if test="type == 'IName'.toString()">
+                and I_NAME like '%' || #{keyword} || '%'
+            </if>
+        </foreach>
+        ORDER BY I_ID ASC
+    </select>
+
+    <!--BOM 관리 bom 세부목록 조회-->
+    <select id="getBomDetails" resultType="com.cnr_furniture.domain.bom.BomVO">
+        SELECT rownum AS rn, bm.*
+        FROM (
+            SELECT
+                    b.B_ITEM_ID,
+                    b.B_MATERIAL_ID,
+                    m.M_NAME, b.B_UNIT,
+                    b.B_MATERIAL_QUANTITY
+            FROM
+                    BOM b, MATERIAL m
+            WHERE
+                    b.B_MATERIAL_ID = m.M_ID
+            ORDER BY
+                    b.B_ITEM_ID, b.B_MATERIAL_ID ASC
+            ) bm
+    </select>
+
+    <!--BOM 관리 제품번호 한개 값 가져오기-->
+    <select id="getListBom" resultType="com.cnr_furniture.domain.bom.BomVO">
+        SELECT rownum AS rn, bm.*
+        FROM (
+            SELECT
+                    b.B_ITEM_ID
+                  , b.B_MATERIAL_ID
+                  , m.M_NAME
+                  , b.B_UNIT
+                  , b.B_MATERIAL_QUANTITY
+            FROM
+                    BOM b, MATERIAL m
+            WHERE
+                    b.B_MATERIAL_ID = m.M_ID AND b.B_ITEM_ID = #{i_id}
+            ORDER BY
+                    b.B_ITEM_ID, b.B_MATERIAL_ID ASC
+             ) bm
+    </select>
+
+    <!--Bom Insert 의 자재목록 조회, 검색-->
+    <select id="getMaterialList" resultType="com.cnr_furniture.domain.MaterialInfo.MaterialInfoVO">
+        SELECT
+            rownum AS rn,
+            M_ID,
+            M_NAME
+        FROM MATERIAL
+        WHERE 1=1
+            <foreach item="type" collection="typeArr">
+                <if test="type == 'MNum'.toString()">
+                    AND M_ID LIKE '%' || #{keyword} || '%'
+                </if>
+                <if test="type == 'MName'.toString()">
+                    AND M_NAME LIKE '%' || #{keyword} || '%'
+                </if>
+            </foreach>
+        ORDER BY M_ID ASC
+    </select>
+
+    <!--Bom 관리에서 수량만 수정-->
+    <update id="update">
+        UPDATE BOM
+        SET B_MATERIAL_QUANTITY = #{b_material_quantity}
+        WHERE B_MATERIAL_ID = #{b_material_id}
+        AND B_ITEM_ID = #{b_item_id}
+    </update>
+
+    <!--Bom Insert bom추가 후 전체수정-->
+    <update id="updateAll">
+        UPDATE BOM
+        SET B_ITEM_ID = #{b_item_id},
+            B_MATERIAL_ID = #{b_material_id},
+            B_UNIT = #{b_unit},
+            B_MATERIAL_QUANTITY = #{b_material_quantity}
+        WHERE B_MATERIAL_ID = #{b_material_id}
+        AND B_ITEM_ID = #{b_item_id}
+    </update>
+
+    <!--bom Insert Bom 추가-->
+    <insert id="addBomList">
+        INSERT INTO BOM
+        (B_ITEM_ID, B_MATERIAL_ID, B_UNIT, B_MATERIAL_QUANTITY)
+        VALUES
+        (#{b_item_id}, #{b_material_id}, #{b_unit}, #{b_material_quantity})
+    </insert>
+
+</mapper>

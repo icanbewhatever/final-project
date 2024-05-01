@@ -1,0 +1,148 @@
+@charset "UTF-8";
+
+/* reset button */
+
+.resetBtn {
+    border: 1px solid #777;
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    padding-bottom: 2px;
+    vertical-align: middle;
+    background-color:  #fff;
+    border-radius: 3px;
+    position: absolute;
+    right: 0;
+    bottom: -15px;	
+    cursor: pointer;
+}
+
+/*   표 이름   */
+.ItemTableName {
+  display: flex;
+	align-items: center;
+  width: 100%;
+  height: 40px;
+  background-color: #F1F1F1;
+  border-top: 2px solid #999;
+	font-family: Inter;
+	font-weight: 400;
+  font-size: 16px;
+}
+
+.MTableName {
+  display: flex;
+	align-items: center;
+  width: 100%;
+  height: 40px;
+  background-color: #F1F1F1;
+  border-top: 2px solid #999;
+	font-family: Inter;
+	font-weight: 400;
+  font-size: 16px;
+}
+
+/*   표 이름   */
+.MTableName {
+  display: flex;
+	align-items: center;
+  width: 100%;
+  height: 40px;
+  background-color: #F1F1F1;
+  border-top: 2px solid #999;
+	font-family: Inter;
+	font-weight: 400;
+  font-size: 16px;
+}
+
+
+.member-btn button {
+	position: absolute;
+		 right: 0;
+	border: 1px solid #999;
+}
+
+/*  검색창   */
+
+.materialSearchBar {
+	border-bottom: 2px solid #999;
+	border-top: 2px solid #999;
+	margin-bottom: 10px;
+	height: 55px;
+}
+
+#searchMaterialForm {
+	display: flex;
+}
+
+.mtInsert-btn {
+	float:right;
+	position: relative;
+	bottom: 43px;
+}
+
+.mtInsert-btn button {
+	border-color: #bbb;
+	border: 1px solid #999;
+}
+
+#searchMtBtn {
+	margin: 5px;
+	position: relative;
+		left: 665px;
+		top: 2px;
+	height: 38px;
+}
+
+.col-sm-1 select {
+	height:40px;
+	margin: 5px;
+}
+
+.col-sm-1 input {
+	height:40px;
+	margin: 5px;
+}
+
+.table-content td {
+  padding: 15px;
+  text-align: center;
+  vertical-align:middle;
+  font-weight: 400;
+  font-size: 16px;
+  color: #000;
+  border-right: 1px solid #BDBDBD;
+}
+
+.modifyMT { 
+	cursor: pointer;
+	border: none;
+}
+
+.modifyMT:hover { 
+	color: #17A2B8;
+	font-weight: bold;
+	font-size: 15px;
+}
+
+.delete-btn:hover { 
+	color: red;
+	font-weight: bold;
+	font-size: 15px;
+}
+
+.modal-content1,
+.modal-content2,
+.modal-content3 {
+	display:flex;
+}
+
+
+.mt-modal-title {
+	text-align: center
+}
+
+.modal-header h4 {
+	position: relative;
+	right: -165px;
+}

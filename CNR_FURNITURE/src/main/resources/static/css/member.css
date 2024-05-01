@@ -1,0 +1,217 @@
+/*   검색창   */
+.searchBer {
+  display: flex;
+	align-items: center;
+  height: 50px;
+  background-color: #fff;
+  border-top: 2px solid #999;
+  border-bottom: 2px solid #999;
+}
+/*   검색명   */
+.sb-name {
+  display: flex;
+	align-items: center;
+	justify-content: center;
+  height: 46px;
+  font-size: 14px;
+  background-color: #D9D9D9;
+}
+/*   검색내용   */
+.sb-text {
+  display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.sb-text .input-companyList {
+  height: 40px;
+}
+.sb-text input[type="list"] {
+  height: 40px;
+}
+.sb-text select {
+  height: 40px;
+}
+.sb-name .input-select {
+  height: 40px;
+  border: 0px;
+  background-color: transparent;
+}
+
+/*   검색버튼   */
+.member-btn {
+  height: 40px;
+  float: right;
+}
+.sb-btns {
+  float: right;
+  padding-top:1px;
+  width: 120px;
+  height: 40px;
+}
+.search-btn {
+  float: right;
+  width: 80px;
+  height: 40px;
+}
+
+/*   버튼   */
+.btn-reset{
+  width: 38px;
+  height: 38px;
+  background-color: #fff;
+  border: 1px solid #777;
+  border-radius:0px;
+  position: relative;
+  border-radius: 3px;
+}
+#roleUp {
+  margin-right:110px;
+}
+#addMembers {
+  margin-right:20px;
+}
+#btn-reset{
+  position: absolute;
+  right: 6px;
+  bottom: 5px;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+}
+
+/*   표 이름   */
+.ETableTitle {
+  display: flex;
+	align-items: center;
+  width: 100%;
+  height: 40px;
+  background-color: #F1F1F1;
+  border-top: 2px solid #999;
+	font-family: Inter;
+	font-weight: 400;
+  font-size: 16px;
+}
+/*   아이콘 div   */
+.icon {
+  display: flex;
+	justify-content: center;
+	align-items: center;
+  width: 30px;
+  margin-left: 5px;
+}
+/*   테이블 이름   */
+.employee {
+  display: flex;
+	align-items: center;
+}
+
+
+/*   사원테이블 긴 높이 조절   */
+.table.member-ETable {
+  height: 555px;
+}
+/*   테이블 행 높이 조절   */
+.tbl-content.member-ETable {
+  height: 0px;
+}
+
+.tbl-content.member-ETable td{
+  padding: 5px;
+  height: 45px;
+  text-align: center;
+  vertical-align:middle;
+  font-weight: 300;
+  font-size: 12px;
+  color: #000;
+  border-right: 1px solid #BDBDBD;
+}
+
+/*   디렉터/매니저테이블 중간 높이 조절   */
+.table.member-DTable {
+  height: 250px;
+}
+.tbl-content.member-DTable {
+  height: 0px;
+}
+.tbl-content.member-DTable td{
+  padding: 5px;
+  height: 45px;
+  text-align: center;
+  vertical-align:middle;
+  font-weight: 300;
+  font-size: 12px;
+  color: #000;
+  border-right: 1px solid #BDBDBD;
+}
+
+
+
+
+/*   모달창 테이블 높이 조절   */
+.table.member-MTable {
+  height: 230px;
+}
+.tbl-content.member-MTable {
+  height: 0px;
+}
+.tbl-content.member-MTable td{
+  padding: 5px;
+  height: 45px;
+  text-align: center;
+  vertical-align:middle;
+  font-weight: 300;
+  font-size: 12px;
+  color: #000;
+  border-right: 1px solid #BDBDBD;
+}
+
+
+
+/*   사원등록 모달창 css   */
+.addMember-header {
+  display : flex;
+}
+.addMember-title {
+  display : flex;
+}
+.modal-body .addMember-area {
+  display: flex;
+  flex-wrap: wrap;
+	justify-content: center;
+}
+.modal-body .addMember-area .addMember-Text-area {
+  height: 300px;
+  display: flex;
+  flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+  font-family: Inter;
+	font-weight: 400;
+	font-size: 18px;
+}
+.modal-body .addMember-area .addMember-Text-area .addMember-Text{
+  font-family: Inter;
+	font-weight: 300;
+	font-size: 16px;
+  padding: 10px;
+  height: 40px;
+}
+
+/* 403 에러페이지 */
+.headline.text-yellow.text-alert{
+  margin-top: -30px;
+}
+.error-content.text-area {
+  width: 500px;
+}
+.error-content.text-area .text-alert {
+  width: 500px;
+  margin-top: 100px;
+}
