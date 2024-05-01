@@ -9,3 +9,4 @@
 ## :calendar: develop period
 
 2024-3-19 ~ 2024-4-21
+PPT > https://www.canva.com/design/DAGB09QYuLw/aAn0IDhyphJN4kNFbcFN7g/edit?utm_content=DAGB09QYuLw&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
